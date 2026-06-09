@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "header.html" %}
+<form method="post">
+    {% csrf_token %}
+    <div align="center">
+        {% if form.id > 0 %}
+        <h1>Update Marksheet</h1>
+        {% else %}
+        <h1>Add marksheet</h1>
+        {% endif %}
+        <table>
+            <tr>
+                <th> Name</th>
+                <td><input type="text" name="firstName"value="{{form.firstName}}"></td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td><input type="text" name="Class"value="{{form.Class}}"></td>
+            </tr>
+            <tr>
+                <th>StudentId </th>
+                <td><input type="text" name="studentId"value="{{form.studentId}}"></td>
+            </tr>
+            <tr>
+                <th>Physics</th>
+                <td><input type="text" name="physics"value="{{form.physics}}"></td>
+            </tr>
+            <tr>
+                <th>Chemistry</th>
+                <td><input type="text" name="chemistry"value="{{form.chemistry}}"> </td>
+            </tr>
+             <tr>
+                <th>Maths</th>
+                <td><input type="text" name="maths"value="{{form.maths}}"></td>
+            </tr>
+            <tr>
+                <th></th>
+
+                {% if form.id > 0 %}
+                <td><input type="submit" name="operation" value="update"></td>
+                {% else %}
+                <td><input type="submit" name="operation" value="save"></td>
+                {% endif %}
+            </tr>
+        </table>
+
+    </div>
+</form>
+</body>
+</html>
